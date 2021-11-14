@@ -1,5 +1,6 @@
 package com.emse.spring.faircorp.dao;
 
+import com.emse.spring.faircorp.model.Building;
 import com.emse.spring.faircorp.model.Room;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -16,5 +17,8 @@ public interface RoomDao extends JpaRepository<Room,Long>{
 
     @Query("select r from Room r where r.floor=:floor")
     List<Room> findByFloor(String floor);
+
+    @Query("select r from Room r where r.building.id=:buildingId")
+    List<Room> findByFloor(Building buildingId);
 
 }

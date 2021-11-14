@@ -23,5 +23,5 @@ public interface HeaterDao extends JpaRepository<Heater,Long> {
 
     @Modifying
     @Query("delete from Heater h where h.room.id = ?1")
-    void deleteByRoom(long roomId);
+    void deleteByRoom(long roomId); // delete all heaters in room
 }

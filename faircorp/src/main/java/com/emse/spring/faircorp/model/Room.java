@@ -10,6 +10,10 @@ public class Room {
     @GeneratedValue
     private Long id;
 
+    @JoinColumn(nullable = false)
+    @ManyToOne
+    private Building building;
+
     @Column(nullable = false)
     private Integer floor;
 
@@ -32,6 +36,11 @@ public class Room {
 
     public Room(Long id){
         this.id = id;
+    }
+
+    public Room(Integer floor,String name){
+        this.floor = floor;
+        this.name = name;
     }
 
     public Room(Long id,Integer floor,String name){
