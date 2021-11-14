@@ -25,17 +25,16 @@ public class Window {
         this.room = room;
     }
 
-    public Window(String name, WindowStatus windowStatus, Room room) {
-        this.name = name;
-        this.windowStatus = windowStatus;
-        this.room = room;
-    }
-
-    public Window(Long id, String name, WindowStatus windowStatus, Room room) {
+    public Window(Long id, String name, WindowStatus windowStatus, Long roomId) {
         this.id = id;
         this.name = name;
         this.windowStatus = windowStatus;
-        this.room = room;
+        this.room.setId(roomId);
+    }
+
+
+    public Window() {
+
     }
 
     public Long getId() {

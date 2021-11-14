@@ -16,11 +16,11 @@ public class Room {
     @Column(nullable = false)
     private String name;
 
-    @Column
-    private double currentTemperature;
+    @Column(nullable = true)
+    private Double currentTemperature;
 
-    @Column
-    private double targetTemperature;
+    @Column(nullable = true)
+    private Double targetTemperature;
 
     @OneToMany(mappedBy = "room")
     private Set<Heater> heaters;
@@ -29,14 +29,20 @@ public class Room {
     private Set<Window> windows;
 
     public Room(){}
-    public Room(int floor,String name){
-        this.floor = floor;
-        this.name = name;
+
+    public Room(Long id){
+        this.id = id;
     }
-    public Room(Long id, Integer floor,String name,Double currentTemperature,Double targetTemperature){
+
+    public Room(Long id,Integer floor,String name){
         this.id = id;
         this.floor = floor;
         this.name = name;
+    }
+
+    public Room(Long id, Integer floor,String name, Double currentTemperature, Double targetTemperature){
+        this.id = id;
+        this.floor = floor;
         this.currentTemperature = currentTemperature;
         this.targetTemperature = targetTemperature;
     }
@@ -82,7 +88,7 @@ public class Room {
         this.name = name;
     }
 
-    public double getCurrentTemperature() {
+    public Double getCurrentTemperature() {
         return currentTemperature;
     }
 
@@ -90,7 +96,7 @@ public class Room {
         this.currentTemperature = currentTemperature;
     }
 
-    public double getTargetTemperature() {
+    public Double getTargetTemperature() {
         return targetTemperature;
     }
 
