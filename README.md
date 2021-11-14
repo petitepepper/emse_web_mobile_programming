@@ -25,3 +25,8 @@ Window:
  - status(`OPEN` or `CLOSED`)
 ```
 
+
+
+
+
+ClassName.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
