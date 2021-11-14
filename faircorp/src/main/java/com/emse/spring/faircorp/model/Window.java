@@ -20,7 +20,6 @@ public class Window {
     private WindowStatus windowStatus;
 
     public Window() {
-
     }
 
     public Window(Room room, String name, WindowStatus windowStatus) {
@@ -29,12 +28,6 @@ public class Window {
         this.windowStatus = windowStatus;
     }
 
-     public Window(Long id, String name, WindowStatus windowStatus, Room room) {
-        this.id = id;
-        this.name = name;
-        this.windowStatus = windowStatus;
-        this.room = room;
-    }
 
 
     public Long getId() {

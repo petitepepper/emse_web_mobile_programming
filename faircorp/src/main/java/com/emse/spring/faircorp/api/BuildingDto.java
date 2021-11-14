@@ -3,13 +3,13 @@ package com.emse.spring.faircorp.api;
 import com.emse.spring.faircorp.model.Building;
 import com.emse.spring.faircorp.model.Room;
 
-import java.util.List;
+import java.util.Set;
 
 public class BuildingDto {
     private Long id;
     private String name;
     private Double outsideTemperature;
-    private List<Room> rooms;
+    private Set<Room> rooms;
 
     public BuildingDto(){}
 
@@ -17,7 +17,7 @@ public class BuildingDto {
         this.id = building.getId();
         this.name = building.getName();
         this.outsideTemperature = building.getOutsideTemperature();
-        this.rooms = (List<Room>) building.getRooms();
+        this.rooms = (Set<Room>) building.getRooms();
     }
 
 
@@ -45,11 +45,11 @@ public class BuildingDto {
         this.outsideTemperature = outsideTemperature;
     }
 
-    public List<Room> getRooms() {
+    public Set<Room> getRooms() {
         return rooms;
     }
 
-    public void setRooms(List<Room> rooms) {
+    public void setRooms(Set<Room> rooms) {
         this.rooms = rooms;
     }
 }

@@ -1,7 +1,6 @@
 package com.emse.spring.faircorp.model;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -18,11 +17,11 @@ public class Building {
     private Double outsideTemperature;
 
     @OneToMany(mappedBy = "building")
-    private List<Room> rooms;
+    private Set<Room> rooms;
 
 
     public Building() {}
-    public Building(String name, Double outsideTemperature, List<Room> rooms) {
+    public Building(String name, Double outsideTemperature, Set<Room> rooms) {
         this.name = name;
         this.outsideTemperature = outsideTemperature;
         this.rooms = rooms;
@@ -50,11 +49,11 @@ public class Building {
         this.outsideTemperature = outsideTemperature;
     }
 
-    public List<Room> getRooms() {
+    public Set<Room> getRooms() {
         return rooms;
     }
 
-    public void setRooms(List<Room> rooms) {
+    public void setRooms(Set<Room> rooms) {
         this.rooms = rooms;
     }
 }

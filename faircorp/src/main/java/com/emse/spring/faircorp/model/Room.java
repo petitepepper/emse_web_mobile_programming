@@ -10,15 +10,15 @@ public class Room {
     @GeneratedValue
     private Long id;
 
+    @Column(nullable = false)
+    private String name;
+
     @JoinColumn(nullable = false)
     @ManyToOne
     private Building building;
 
     @Column(nullable = false)
     private Integer floor;
-
-    @Column(nullable = false)
-    private String name;
 
     @Column(nullable = true)
     private Double currentTemperature;
@@ -34,24 +34,21 @@ public class Room {
 
     public Room(){}
 
-    public Room(Long id){
-        this.id = id;
-    }
+//    public Room(Integer floor,String name){
+//        this.floor = floor;
+//        this.name = name;
+//    }
 
-    public Room(Integer floor,String name){
-        this.floor = floor;
+    public Room(String name,Integer floor,Building building){
         this.name = name;
+        this.floor = floor;
+        this.building = building;
     }
 
-    public Room(Long id,Integer floor,String name){
-        this.id = id;
-        this.floor = floor;
+    public Room(String name,Integer floor,Building building, Double currentTemperature, Double targetTemperature){
         this.name = name;
-    }
-
-    public Room(Long id, Integer floor,String name, Double currentTemperature, Double targetTemperature){
-        this.id = id;
         this.floor = floor;
+        this.building = building;
         this.currentTemperature = currentTemperature;
         this.targetTemperature = targetTemperature;
     }
@@ -97,11 +94,19 @@ public class Room {
         this.name = name;
     }
 
+    public Building getBuilding() {
+        return building;
+    }
+
+    public void setBuilding(Building building) {
+        this.building = building;
+    }
+
     public Double getCurrentTemperature() {
         return currentTemperature;
     }
 
-    public void setCurrentTemperature(double currentTemperature) {
+    public void setCurrentTemperature(Double currentTemperature) {
         this.currentTemperature = currentTemperature;
     }
 
@@ -109,7 +114,7 @@ public class Room {
         return targetTemperature;
     }
 
-    public void setTargetTemperature(double targetTemperature) {
+    public void setTargetTemperature(Double targetTemperature) {
         this.targetTemperature = targetTemperature;
     }
 }

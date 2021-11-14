@@ -1,11 +1,14 @@
 package com.emse.spring.faircorp.dao;
 
 import com.emse.spring.faircorp.model.Building;
+import com.emse.spring.faircorp.model.Heater;
 import com.emse.spring.faircorp.model.Room;
+import com.emse.spring.faircorp.model.Window;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
+import java.util.Set;
 
 public interface RoomDao extends JpaRepository<Room,Long>{
 
@@ -13,12 +16,17 @@ public interface RoomDao extends JpaRepository<Room,Long>{
     Room getById(Long id);
 
     @Query("select r from Room r where r.name=:name")
-    List<Room> findByName(String name);
+    Set<Room> findByName(String name);
 
     @Query("select r from Room r where r.floor=:floor")
-    List<Room> findByFloor(String floor);
+    Set<Room> findByFloor(String floor);
 
     @Query("select r from Room r where r.building.id=:buildingId")
-    List<Room> findByFloor(Building buildingId);
+    Set<Room> findByFloor(Building buildingId);
 
+//    @Query("select r.windows from Room r")
+//    Set<Window> findAllWindows();
+//
+//    @Query("select r.heaters from Room r")
+//    Set<Heater> findAllHeaters();
 }
