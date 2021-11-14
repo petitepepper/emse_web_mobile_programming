@@ -66,5 +66,4 @@ public class WindowController {
     public void delete(@PathVariable Long id) {
         windowDao.deleteById(id);
     }
-
 }

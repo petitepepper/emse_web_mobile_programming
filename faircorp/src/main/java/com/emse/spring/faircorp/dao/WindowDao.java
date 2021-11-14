@@ -23,9 +23,9 @@ public interface WindowDao extends JpaRepository<Window,Long>,WindowDaoCustom {
     @Query("select w from Window w where w.windowStatus=:windowStatus")
     List<Window> findStatus(WindowStatus windowStatus);
 
-    @Modifying // required for modifying operations like delete and update
+    @Modifying
     @Query("delete from Window w where w.room.id = ?1")
-    void deleteByRoom(long roomId); // delete all windows in room
+    void deleteByRoom(long roomId);
 
 
 }
