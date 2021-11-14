@@ -13,7 +13,6 @@ public class Room {
     @Column(nullable = false)
     private String name;
 
-    @JoinColumn(nullable = false)
     @ManyToOne
     private Building building;
 
