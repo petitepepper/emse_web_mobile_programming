@@ -19,23 +19,19 @@ public class Window {
     @Enumerated(EnumType.STRING)
     private WindowStatus windowStatus;
 
-
-
-    public Window(Room room) {
-        this.room = room;
-    }
-
-    public Window(Long id, String name, WindowStatus windowStatus, Long roomId) {
-        this.id = id;
-        this.name = name;
-        this.windowStatus = windowStatus;
-        this.room.setId(roomId);
-    }
-
-
     public Window() {
 
     }
+
+     public Window(Long id, String name, WindowStatus windowStatus, Room room) {
+        this.id = id;
+        this.name = name;
+        this.windowStatus = windowStatus;
+        this.room = room;
+    }
+
+
+
 
     public Long getId() {
         return id;

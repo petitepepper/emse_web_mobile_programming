@@ -19,6 +19,7 @@ import java.util.stream.Collectors;
 class WindowDaoTest {
     @Autowired
     private WindowDao windowDao;
+    @Autowired
     private RoomDao roomDao;
 
     @Test
@@ -43,5 +44,17 @@ class WindowDaoTest {
         Assertions.assertThat(result).isEmpty();
     }
 
+
+    @Test
+    public void shouldDeleteWindowsRoom() {
+        Room room = roomDao.getById(-10L);
+        List<Long> roomIds = room.getWindows().stream().map(Window::getId).collect(Collectors.toList());
+        Assertions.assertThat(roomIds.size()).isEqualTo(2);
+
+        windowDao.deleteByRoom(-10L);
+        List<Window> result = windowDao.findAllById(roomIds);
+        Assertions.assertThat(result).isEmpty();
+
+    }
 
 }
