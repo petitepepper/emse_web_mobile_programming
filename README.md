@@ -27,4 +27,6 @@ Window:
 
 
 
-swagger :  http://localhost:8080/swagger-ui/index.html
+swagger :     http://ye.wenjing.cleverapps.io/swagger-ui/index.html
+clevercloud : http://ye.wenjing.cleverapps.io/
+Android App:  https://github.com/petitepepper/faircorp-app
