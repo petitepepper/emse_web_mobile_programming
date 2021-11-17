@@ -8,12 +8,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 public interface RoomDao extends JpaRepository<Room,Long>{
 
-    @Query("select r from Room r where r.id=:id")
-    Room getById(Long id);
+    Optional<Room> findById(Long Id);
 
     @Query("select r from Room r where r.name=:name")
     Set<Room> findByName(String name);
@@ -22,7 +22,7 @@ public interface RoomDao extends JpaRepository<Room,Long>{
     Set<Room> findByFloor(String floor);
 
     @Query("select r from Room r where r.building.id=:buildingId")
-    Set<Room> findByFloor(Building buildingId);
+    Set<Room> findByBuilding(Building buildingId);
 
 //    @Query("select r.windows from Room r")
 //    Set<Window> findAllWindows();

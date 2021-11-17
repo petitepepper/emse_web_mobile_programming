@@ -33,10 +33,10 @@ public class Room {
 
     public Room(){}
 
-//    public Room(Integer floor,String name){
-//        this.floor = floor;
-//        this.name = name;
-//    }
+    public Room(String name,Integer floor){
+        this.name = name;
+        this.floor = floor;
+    }
 
     public Room(String name,Integer floor,Building building){
         this.name = name;

@@ -37,21 +37,12 @@ public class RoomController {
     }
 
 
-    //Create or update a room
+    //Create a room
     @PostMapping
     public RoomDto create(@RequestBody RoomDto dto) {
-        // RoomDto must always contain the building
-        Building building = buildingDao.getById(dto.getBuildingId());
         Room room = null;
-        // On creation id is not defined
-        if (dto.getId() == null) {
-            room = roomDao.save(new Room(dto.getName(), dto.getFloor(),building));
-        }
-        else {
-            room = roomDao.getById(dto.getId());
-            room.setName(dto.getName());
-            room.setFloor(dto.getFloor());
-        }
+        room = roomDao.save(new Room(dto.getName(), dto.getFloor()));
+
         return new RoomDto(room);
     }
 
