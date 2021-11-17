@@ -35,7 +35,7 @@ public class BuildingController {
     //Create a building
     @PostMapping
     public BuildingDto create(@RequestBody BuildingDto dto) {
-        Building building = buildingDao.save(new Building(dto.getName(), dto.getOutsideTemperature(), dto.getRooms()));
+        Building building = buildingDao.save(new Building(dto.getName(), dto.getOutsideTemperature()));
 
         return new BuildingDto(building);
     }

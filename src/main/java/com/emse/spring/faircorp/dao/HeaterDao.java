@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 import java.util.Optional;
 
-public interface HeaterDao extends JpaRepository<Heater,Long> {
+public interface HeaterDao extends JpaRepository<Heater,Long> ,HeaterDaoCustom{
 
     Optional<Heater> findById(Long Id);
 

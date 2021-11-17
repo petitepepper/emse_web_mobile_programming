@@ -27,5 +27,4 @@ public interface WindowDao extends JpaRepository<Window,Long>,WindowDaoCustom {
     @Query("delete from Window w where w.room.id = ?1")
     void deleteByRoom(long roomId);
 
-
 }

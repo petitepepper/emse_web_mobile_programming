@@ -2,6 +2,8 @@ package com.emse.spring.faircorp.dao;
 
 import com.emse.spring.faircorp.model.Window;
 import com.emse.spring.faircorp.model.WindowStatus;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -20,4 +22,18 @@ public class WindowDaoCustomImpl implements WindowDaoCustom {
                 .setParameter("status", WindowStatus.OPEN)
                 .getResultList();
     }
+
+    @Override
+    @Transactional
+    @Modifying
+    public List<Window> deleteAllWindowsInRoom(Long id) {
+        String jpql1 = "delete from Window w where w.room.id = :id";
+        em.createQuery(jpql1).setParameter("id", id).executeUpdate();
+        String jpql2 = " select w from Window w where w.room.id = :id";
+        return em.createQuery(jpql2, Window.class)
+                .setParameter("id", id)
+                .getResultList();
+    }
+
+
 }

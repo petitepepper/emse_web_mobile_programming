@@ -21,10 +21,9 @@ public class Building {
 
 
     public Building() {}
-    public Building(String name, Double outsideTemperature, Set<Room> rooms) {
+    public Building(String name, Double outsideTemperature) {
         this.name = name;
         this.outsideTemperature = outsideTemperature;
-        this.rooms = rooms;
     }
 
 

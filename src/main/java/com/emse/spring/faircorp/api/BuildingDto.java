@@ -4,12 +4,13 @@ import com.emse.spring.faircorp.model.Building;
 import com.emse.spring.faircorp.model.Room;
 
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class BuildingDto {
     private Long id;
     private String name;
     private Double outsideTemperature;
-    private Set<Room> rooms;
+    private Set<RoomDto> rooms;
 
     public BuildingDto(){}
 
@@ -17,7 +18,7 @@ public class BuildingDto {
         this.id = building.getId();
         this.name = building.getName();
         this.outsideTemperature = building.getOutsideTemperature();
-        this.rooms = (Set<Room>) building.getRooms();
+        this.rooms = (building.getRooms() == null)?null:building.getRooms().stream().map(RoomDto::new).collect(Collectors.toSet());
     }
 
 
@@ -45,11 +46,11 @@ public class BuildingDto {
         this.outsideTemperature = outsideTemperature;
     }
 
-    public Set<Room> getRooms() {
+    public Set<RoomDto> getRooms() {
         return rooms;
     }
 
-    public void setRooms(Set<Room> rooms) {
+    public void setRooms(Set<RoomDto> rooms) {
         this.rooms = rooms;
     }
 }

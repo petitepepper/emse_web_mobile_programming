@@ -44,13 +44,6 @@ public class Room {
         this.building = building;
     }
 
-    public Room(String name,Integer floor,Building building, Double currentTemperature, Double targetTemperature){
-        this.name = name;
-        this.floor = floor;
-        this.building = building;
-        this.currentTemperature = currentTemperature;
-        this.targetTemperature = targetTemperature;
-    }
 
 
     public Set<Heater> getHeaters() {
