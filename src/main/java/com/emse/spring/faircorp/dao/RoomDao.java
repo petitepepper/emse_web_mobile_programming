@@ -13,16 +13,16 @@ import java.util.Set;
 
 public interface RoomDao extends JpaRepository<Room,Long>{
 
-    Optional<Room> findById(Long Id);
-
-    @Query("select r from Room r where r.name=:name")
-    Set<Room> findByName(String name);
-
-    @Query("select r from Room r where r.floor=:floor")
-    Set<Room> findByFloor(String floor);
-
-    @Query("select r from Room r where r.building.id=:buildingId")
-    Set<Room> findByBuilding(Building buildingId);
+//    Optional<Room> findById(Long Id);
+//
+//    @Query("select r from Room r where r.name=:name")
+//    Set<Room> findByName(String name);
+//
+//    @Query("select r from Room r where r.floor=:floor")
+//    Set<Room> findByFloor(String floor);
+//
+//    @Query("select r from Room r where r.building.id=:buildingId")
+//    Set<Room> findByBuilding(Building buildingId);
 
 //    @Query("select r.windows from Room r")
 //    Set<Window> findAllWindows();
