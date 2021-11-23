@@ -21,6 +21,9 @@ public class Building {
 
 
     public Building() {}
+    public Building(String name) {
+        this.name = name;
+    }
     public Building(String name, Double outsideTemperature) {
         this.name = name;
         this.outsideTemperature = outsideTemperature;

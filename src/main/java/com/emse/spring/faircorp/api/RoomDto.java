@@ -13,9 +13,13 @@ public class RoomDto {
     private String name;
     private Integer floor;
     private Long buildingId;
+    private String buildingName;
     private Double currentTemperature;
     private Double targetTemperature;
     private Set<HeaterDto> heaters;
+
+
+
     private Set<WindowDto> windows;
 
 
@@ -25,6 +29,7 @@ public class RoomDto {
         this.name = room.getName();
         this.floor = room.getFloor();
         this.buildingId = room.getBuilding().getId();
+        this.buildingName = room.getBuilding().getName();
         this.currentTemperature = room.getCurrentTemperature();
         this.targetTemperature = room.getTargetTemperature();
         this.heaters = (room.getHeaters() == null )?null:room.getHeaters().stream().map(HeaterDto::new).collect(Collectors.toSet());
@@ -87,8 +92,17 @@ public class RoomDto {
     public Set<WindowDto> getWindows() {
         return windows;
     }
+
     public Long getBuildingId() {return this.buildingId;}
+
     public void setBuildingId(Long buildingId) {this.buildingId = buildingId;}
 
+    public String getBuildingName() {
+        return buildingName;
+    }
+
+    public void setBuildingName(String buildingName) {
+        this.buildingName = buildingName;
+    }
 
 }
